@@ -3,35 +3,49 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
-  <display-name>Simple Web Application</display-name>
-  
-  <context-param>
-    <param-name>test</param-name>
-    <param-value>testing</param-value>
-  </context-param>
-  
-  <servlet>
-    <servlet-name>Sample</servlet-name>
-    <servlet-class>javaServer.SimpleWeb</servlet-class>
-  </servlet>
-  
-  <servlet>
-    <servlet-name>Sample2</servlet-name>
-    <servlet-class>javaServer.SimpleWeb</servlet-class>
-    <init-param>
-        <param-name>testt</param-name>
-        <param-value>tt</param-value>
-    </init-param>
-  </servlet>
-  
-  <servlet-mapping>
-    <servlet-name>Sample</servlet-name>
-    <url-pattern>/test</url-pattern>
-  </servlet-mapping>
-  
-  <servlet-mapping>
-    <servlet-name>Sample2</servlet-name>
-    <url-pattern>/www</url-pattern>
-  </servlet-mapping>
-  
+	<display-name>Simple Web Application</display-name>
+
+	<context-param>
+		<param-name>sampleContextPram</param-name>
+		<param-value>Initial</param-value>
+	</context-param>
+	
+    <filter>
+        <filter-name>simpleFilter</filter-name>
+        <filter-class>filters.SimpleFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>simpleFilter</filter-name>
+        <url-pattern>/test</url-pattern>
+    </filter-mapping>
+    
+    <listener>
+        <listener-class>listeners.SimpleListener</listener-class>
+    </listener>
+    
+	<servlet>
+		<servlet-name>Sample</servlet-name>
+		<servlet-class>javaServer.SimpleWeb</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>Sample2</servlet-name>
+		<servlet-class>javaServer.SimpleWeb</servlet-class>
+		<init-param>
+			<param-name>testt</param-name>
+			<param-value>tt</param-value>
+		</init-param>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>Sample</servlet-name>
+		<url-pattern>/test</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>Sample2</servlet-name>
+		<url-pattern>/www</url-pattern>
+	</servlet-mapping>
+
 </web-app>
