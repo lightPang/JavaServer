@@ -1,4 +1,4 @@
-package javaServer;
+package web;
 
 import java.io.IOException;
 

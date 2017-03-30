@@ -26,17 +26,27 @@
     
 	<servlet>
 		<servlet-name>Sample</servlet-name>
-		<servlet-class>javaServer.SimpleWeb</servlet-class>
+		<servlet-class>web.SimpleWeb</servlet-class>
 	</servlet>
 
 	<servlet>
 		<servlet-name>Sample2</servlet-name>
-		<servlet-class>javaServer.SimpleWeb</servlet-class>
+		<servlet-class>web.SimpleWeb</servlet-class>
 		<init-param>
 			<param-name>testt</param-name>
 			<param-value>tt</param-value>
 		</init-param>
 	</servlet>
+	
+	<servlet>
+        <servlet-name>SpringDispatchServlet</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>classpath:/META-INF/spring/sample-servlet.xml</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
 
 	<servlet-mapping>
 		<servlet-name>Sample</servlet-name>
@@ -47,5 +57,10 @@
 		<servlet-name>Sample2</servlet-name>
 		<url-pattern>/www</url-pattern>
 	</servlet-mapping>
+	
+	<servlet-mapping>
+        <servlet-name>SpringDispatchServlet</servlet-name>
+        <url-pattern>/spring/*</url-pattern>
+    </servlet-mapping>
 
 </web-app>
