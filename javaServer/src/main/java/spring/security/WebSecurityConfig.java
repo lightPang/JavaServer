@@ -22,6 +22,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http
 		.authorizeRequests()
+		.antMatchers("/spring/noAuth/**").permitAll()
 		.antMatchers("/spring/hello/simple/").permitAll()
 		.antMatchers("/spring/hello/admin/**").hasRole("ADMIN")
 		.antMatchers("/spring/hello/user/**").hasRole("USER")
